@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://cdn.platform.openai.com/deployments/dil/v15/runner.html -->
+<html lang="en" data-cc-prev-cursor="{&quot;prev&quot;:[&quot;&quot;,&quot;&quot;],&quot;ours&quot;:[&quot;url(\&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEUklEQVR4AcSXf0wbZRzG33vvvd71rlfacuVayrW4ZjOLG05jojHBoHPBuQRDaSFhUFooprUyBwtbRmJsJIsJMW7O7A/NMsyyiHMSRvwR2YxbosYtLpjh4qYZujlFXGBDNqVA2/O+MxiGuA04WHNP+r73vPk+n9y99753eHvrK0dDoQSH7tIPs8TwqJCdPBgIBOi7wYAnkmO9nJErkfOXv60BUJqW9MA5smO32SQiFalV8ebte5Y0XQvDm5+LHLLZsj/njTyiKCoW39ryqnZ+yQ4MSZOTqVqnw/kntLV7sCXauG0HtJdCNwCa4pHzDMNEc2UnUlUVEYJbKiPRl5YMAIIa6msOiKL5DZvFqs0HhMxmc8JfFWoBbzF14wpMBQwP/NRkt8tHTIIJEZpGWRbLjqdKy5qn/MX4vwkgkUikxuiU3+V0fctyHDLyPBJ4U5sG0bgY4VDzJgA4sa2u7loqM7ZecbkvaPMCyQ4HYg3ca+t9/gbw9dZ/ACCgKRb7lSFknSfPPYgpjBxOJ2JZ4+tllTUx8PXUrAAQEI9Un6eQus7r9V7hOCPKdbkozJA9vmA4Ar5e+l8ACHghFjmjUlSxW/GMEpogu2SnCEW/WVoVDoOvh24JAAFN0bpTjIEu9rg91yhMoawsM1ZTk3t91XXV4C9UtwWAgE314ROYxsX3ePJHkbZKWK1WjFGm3RcMVYK/EN0RAAQ0Ruu+IgbDkyuW33sVHlGbzUZTGbTfFwxXgD9f3TEABGx+Nvw1S8jaZfneIZZlkWS301jFB3wbw37w56M5AUDApljkG4HnH3PnuX+DdUKSbARj3FFWVVMG/lw1ZwAIiNcHz9I00SCUi4RhkCRlaxB0h7865AN/LpoXAATADiqY2EIlz/0DYQjKliSGovC7vo21peBPV9fONZbp/enteQNAkXht7SXM8IVKrtJLyD8QNKEO+oPhZ8AHtSfyObuUNdDVtsoL/ZlaEAAUa44FLyPRUKS48o4BhLZOMKnJ1HsbfIGSRAAZ/hj9a5/26B4t3XqmH8bP1IIBoCBsYGNm49N5LqVbe6NBJpNgoFD6kCqKX7gcVjLQPxSAcbNJFwAonAiHk8uc2WVmQdxLZcbRA7YvDVeS0uqX9yV3lie+m4Axs0k3ACheXl6eNg+2NnjxR78MDIvos1Mqhyjcs3Klsgr82aQrAATILs+LgnHi+eHr0gcCb0DaLREZlXQWyLIA/kzpDlD4yJqc5t0j3SOTg+WKbO20iLy2e6grMha+bWY49HUHyKQz90Hh48cvJDt7Tvplm9joyrEmaRrHoqVZT4A3XboDIAr193WXtE6FvN9zcpfAqgVFBeMfP/6w3HXinbWfHGsv4qZ83QHU9PgW7TOv4vThko6+DzdYIWi1ci7tsF6/mu9RzNqqWXzp4s//TkrdAe73Hbk8xqQewljtV9P408O7HnwrlULB3qGREMuxFaf7zu7//tyPvwMY6G8AAAD//0HSaywAAAAGSURBVAMAiIokGn6nczAAAAAASUVORK5CYII=\&quot;) 0 0, auto&quot;,&quot;important&quot;]}" style="cursor: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEUklEQVR4AcSXf0wbZRzG33vvvd71rlfacuVayrW4ZjOLG05jojHBoHPBuQRDaSFhUFooprUyBwtbRmJsJIsJMW7O7A/NMsyyiHMSRvwR2YxbosYtLpjh4qYZujlFXGBDNqVA2/O+MxiGuA04WHNP+r73vPk+n9y99753eHvrK0dDoQSH7tIPs8TwqJCdPBgIBOi7wYAnkmO9nJErkfOXv60BUJqW9MA5smO32SQiFalV8ebte5Y0XQvDm5+LHLLZsj/njTyiKCoW39ryqnZ+yQ4MSZOTqVqnw/kntLV7sCXauG0HtJdCNwCa4pHzDMNEc2UnUlUVEYJbKiPRl5YMAIIa6msOiKL5DZvFqs0HhMxmc8JfFWoBbzF14wpMBQwP/NRkt8tHTIIJEZpGWRbLjqdKy5qn/MX4vwkgkUikxuiU3+V0fctyHDLyPBJ4U5sG0bgY4VDzJgA4sa2u7loqM7ZecbkvaPMCyQ4HYg3ca+t9/gbw9dZ/ACCgKRb7lSFknSfPPYgpjBxOJ2JZ4+tllTUx8PXUrAAQEI9Un6eQus7r9V7hOCPKdbkozJA9vmA4Ar5e+l8ACHghFjmjUlSxW/GMEpogu2SnCEW/WVoVDoOvh24JAAFN0bpTjIEu9rg91yhMoawsM1ZTk3t91XXV4C9UtwWAgE314ROYxsX3ePJHkbZKWK1WjFGm3RcMVYK/EN0RAAQ0Ruu+IgbDkyuW33sVHlGbzUZTGbTfFwxXgD9f3TEABGx+Nvw1S8jaZfneIZZlkWS301jFB3wbw37w56M5AUDApljkG4HnH3PnuX+DdUKSbARj3FFWVVMG/lw1ZwAIiNcHz9I00SCUi4RhkCRlaxB0h7865AN/LpoXAATADiqY2EIlz/0DYQjKliSGovC7vo21peBPV9fONZbp/enteQNAkXht7SXM8IVKrtJLyD8QNKEO+oPhZ8AHtSfyObuUNdDVtsoL/ZlaEAAUa44FLyPRUKS48o4BhLZOMKnJ1HsbfIGSRAAZ/hj9a5/26B4t3XqmH8bP1IIBoCBsYGNm49N5LqVbe6NBJpNgoFD6kCqKX7gcVjLQPxSAcbNJFwAonAiHk8uc2WVmQdxLZcbRA7YvDVeS0uqX9yV3lie+m4Axs0k3ACheXl6eNg+2NnjxR78MDIvos1Mqhyjcs3Klsgr82aQrAATILs+LgnHi+eHr0gcCb0DaLREZlXQWyLIA/kzpDlD4yJqc5t0j3SOTg+WKbO20iLy2e6grMha+bWY49HUHyKQz90Hh48cvJDt7Tvplm9joyrEmaRrHoqVZT4A3XboDIAr193WXtE6FvN9zcpfAqgVFBeMfP/6w3HXinbWfHGsv4qZ83QHU9PgW7TOv4vThko6+DzdYIWi1ci7tsF6/mu9RzNqqWXzp4s//TkrdAe73Hbk8xqQewljtV9P408O7HnwrlULB3qGREMuxFaf7zu7//tyPvwMY6G8AAAD//0HSaywAAAAGSURBVAMAiIokGn6nczAAAAAASUVORK5CYII=&quot;) 0 0, auto !important;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-1jrO9354XvTqYOM/3p4VL6ADhhgTZ3Lp8RE/yCyqGIc=' 'self' https://cdn.platform.openai.com/assets/dil/ 'unsafe-eval'; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'; worker-src blob: data:">
+    <script>(() => {
+  const isRunnerModule = (script) =>
+    script.hasAttribute("data-dil-runner-module");
+  let modulePolicyDenied = false;
+  let moduleFailureReported = false;
+  document.addEventListener("securitypolicyviolation", (event) => {
+    if (
+      event.disposition === "enforce" &&
+      (event.effectiveDirective === "script-src" ||
+        event.effectiveDirective === "script-src-elem") &&
+      event.blockedURI ===
+        document.querySelector("script[data-dil-runner-module]")?.src
+    ) {
+      modulePolicyDenied = true;
+    }
+  });
+  const reportModuleError = (event) => {
+    if (
+      moduleFailureReported ||
+      !(event.target instanceof HTMLScriptElement) ||
+      !isRunnerModule(event.target)
+    )
+      return;
+    moduleFailureReported = true;
+    try {
+      const entries = performance.getEntriesByName(
+        event.target.src,
+        "resource",
+      );
+      if (entries.length === 1 && entries[0].responseStatus === 403)
+        modulePolicyDenied = true;
+    } catch {
+      // An opaque or unavailable status does not identify a policy denial.
+    }
+    try {
+      parent.postMessage(
+        {
+          __oaiDilFrame: true,
+          kind: "moduleError",
+          protocolVersion: 15,
+          ...(modulePolicyDenied ? { policyDenied: true } : {}),
+        },
+        "*",
+      );
+    } catch {}
+  };
+  if (
+    new URLSearchParams(location.hash.slice(1)).get("dil-diagnostics") !== "1"
+  ) {
+    addEventListener("error", reportModuleError, true);
+    return;
+  }
+  const documentBootId =
+    typeof crypto.randomUUID === "function"
+      ? crypto.randomUUID()
+      : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+  let sequence = 0;
+  const now = performance.now.bind(performance);
+  const timeOriginMs = performance.timeOrigin;
+  const record = (operation, phase, details = {}) => {
+    if (sequence >= 64) return;
+    try {
+      parent.postMessage(
+        {
+          __oaiDilFrame: true,
+          kind: "diagnostic",
+          protocolVersion: 15,
+          record: {
+            realm: "bootstrap",
+            sequence: ++sequence,
+            localTimeMs: now(),
+            timeOriginMs,
+            documentBootId,
+            operation,
+            phase,
+            ...details,
+          },
+        },
+        "*",
+      );
+    } catch {}
+  };
+  const runnerModule = () =>
+    document.querySelector("script[data-dil-runner-module]");
+  const recordDocumentState = () => {
+    const script = runnerModule();
+    const details = {
+      documentReadyState: document.readyState,
+      ...(script
+        ? {
+            moduleEvaluationSupported: script.hasAttribute(
+              "data-dil-evaluation-checkpoint",
+            ),
+          }
+        : {}),
+    };
+    try {
+      const entries = performance.getEntriesByType("navigation");
+      const navigation = entries.length === 1 ? entries[0] : undefined;
+      if (navigation?.responseEnd > 0)
+        details.navigationResponseEndMs = navigation.responseEnd;
+      if (navigation?.domInteractive > 0)
+        details.navigationDomInteractiveMs = navigation.domInteractive;
+    } catch {}
+    record("module_load", "received", {
+      reason: "document_state",
+      ...details,
+    });
+  };
+  let evaluationObserved = false;
+  Object.defineProperty(window, "__oaiDilBootstrap", {
+    value: Object.freeze({
+      documentBootId,
+      moduleEvaluationStarted() {
+        if (evaluationObserved) return;
+        evaluationObserved = true;
+        record("module_load", "begin", { reason: "bundle_evaluation" });
+        recordDocumentState();
+        recordModuleResource(runnerModule());
+      },
+    }),
+  });
+  let completedModuleResource;
+  let resourceObserver;
+  const recordModuleResource = (script) => {
+    if (!script || !isRunnerModule(script)) return;
+    try {
+      const candidates = performance
+        .getEntriesByName(script.src, "resource")
+        // The preload scanner can start this document's module request before
+        // the inline bootstrap runs. The resource timeline is document-local.
+        .filter((entry) => entry.startTime <= now());
+      const timing = candidates.length === 1 ? candidates[0] : undefined;
+      const details = {
+        resourceArtifactId: /^runner-([A-Za-z0-9_-]{8,64})\.js$/.exec(
+          new URL(script.src).pathname.split("/").at(-1) ?? "",
+        )?.[1],
+        resourceStartMs: timing?.startTime,
+        resourceEndMs: timing?.responseEnd,
+        // Zero, including for a known 200 response, is not an HTTP failure.
+        ...(timing?.responseStatus >= 100 && timing.responseStatus <= 599
+          ? { httpStatus: timing.responseStatus }
+          : {
+              reason: timing
+                ? "status_unavailable"
+                : candidates.length > 1
+                  ? "timing_ambiguous"
+                  : "timing_missing",
+            }),
+      };
+      record("module_resource", "received", details);
+      if (
+        timing?.responseEnd > 0 &&
+        timing.responseEnd >= timing.startTime &&
+        !completedModuleResource
+      ) {
+        completedModuleResource = true;
+        // A later missing timing lookup must not erase positive completion.
+        record("module_resource", "returned", details);
+        resourceObserver?.disconnect();
+      }
+    } catch {
+      record("module_resource", "ignored", { reason: "timing_unavailable" });
+    }
+  };
+  record("observer_bootstrap", "returned", { hidden: document.hidden });
+  recordDocumentState();
+  document.addEventListener("readystatechange", recordDocumentState);
+  try {
+    resourceObserver = new PerformanceObserver((list) => {
+      const script = runnerModule();
+      if (
+        script &&
+        list.getEntries().some((entry) => entry.name === script.src)
+      )
+        recordModuleResource(script);
+    });
+    resourceObserver.observe({ type: "resource", buffered: true });
+  } catch {
+    // Existing load/probe lookups still work without PerformanceObserver.
+  }
+  addEventListener("pagehide", () => resourceObserver?.disconnect());
+  let probes = 0;
+  const probeTimers = new Set();
+  const cancelProbeTimers = () => {
+    for (const timer of probeTimers) clearTimeout(timer);
+    probeTimers.clear();
+  };
+  addEventListener("pagehide", cancelProbeTimers);
+  document.addEventListener("freeze", cancelProbeTimers);
+  addEventListener("message", (event) => {
+    const message = event.data;
+    if (
+      event.source === parent &&
+      message &&
+      typeof message === "object" &&
+      message.__oaiDilFrame === true &&
+      message.kind === "diagnosticProbe" &&
+      message.protocolVersion === 15 &&
+      typeof message.requestId === "string" &&
+      message.requestId.length <= 128 &&
+      probes++ < 4
+    ) {
+      record("frame_probe", "received", {
+        requestId: message.requestId,
+        hidden: document.hidden,
+      });
+      recordDocumentState();
+      // Inspect the original request even when neither script load nor error fired.
+      recordModuleResource(runnerModule());
+      const startedAtMs = now();
+      const timer = setTimeout(() => {
+        probeTimers.delete(timer);
+        record("event_loop", "fired", {
+          requestId: message.requestId,
+          budgetMs: 0,
+          elapsedMs: now() - startedAtMs,
+          hidden: document.hidden,
+        });
+      }, 0);
+      probeTimers.add(timer);
+    }
+  });
+  const isNativeError = Error.isError;
+  const getPrototypeOf = Object.getPrototypeOf;
+  const nativeErrorNames = new Map([
+    [Error.prototype, "Error"],
+    [TypeError.prototype, "TypeError"],
+    [RangeError.prototype, "RangeError"],
+    [SyntaxError.prototype, "SyntaxError"],
+    [ReferenceError.prototype, "ReferenceError"],
+    [URIError.prototype, "URIError"],
+    [EvalError.prototype, "EvalError"],
+  ]);
+  if (typeof AggregateError !== "undefined")
+    nativeErrorNames.set(AggregateError.prototype, "AggregateError");
+  let moduleExceptionRecorded = false;
+  addEventListener(
+    "error",
+    (event) => {
+      const script =
+        event.target instanceof HTMLScriptElement ? event.target : null;
+      const resource = script !== null;
+      if (
+        !moduleExceptionRecorded &&
+        event instanceof ErrorEvent &&
+        event.filename &&
+        event.filename === runnerModule()?.src
+      ) {
+        moduleExceptionRecorded = true;
+        let name = "unknown";
+        try {
+          // A native brand check avoids invoking thrown Proxy traps/getters.
+          if (isNativeError?.(event.error))
+            name = nativeErrorNames.get(getPrototypeOf(event.error)) ?? name;
+        } catch {}
+        const locations = [];
+        if (
+          Number.isSafeInteger(event.lineno) &&
+          event.lineno > 0 &&
+          event.lineno < 10_000_000 &&
+          Number.isSafeInteger(event.colno) &&
+          event.colno >= 0 &&
+          event.colno < 10_000_000
+        )
+          locations.push({ line: event.lineno, column: event.colno });
+        record("module_load", "reported_error", {
+          reason: "runner_module_exception",
+          fault: { name, locations, stackUnavailable: locations.length === 0 },
+        });
+      }
+      record(resource ? "module_load" : "error", "reported_error", {
+        reason: script
+          ? isRunnerModule(script)
+            ? "runner_module_script_error"
+            : "other_script_error"
+          : "uncaught_error",
+      });
+      if (script) recordModuleResource(script);
+      reportModuleError(event);
+    },
+    true,
+  );
+  addEventListener("unhandledrejection", () => {
+    record("error", "reported_error", { reason: "unhandled_rejection" });
+  });
+  document.addEventListener("securitypolicyviolation", (event) => {
+    const directive = event.effectiveDirective;
+    const operation =
+      directive === "script-src" || directive === "script-src-elem"
+        ? "module_load"
+        : directive === "worker-src"
+          ? "worker_create"
+          : "error";
+    const runnerModule = document.querySelector(
+      "script[data-dil-runner-module]",
+    );
+    const blocked = event.blockedURI;
+    record(operation, "reported_error", {
+      reason: "csp_violation",
+      cspDirective: [
+        "script-src",
+        "script-src-elem",
+        "script-src-attr",
+        "worker-src",
+      ].includes(directive)
+        ? directive
+        : "other",
+      cspDisposition: event.disposition,
+      // Keep URLs local. Cross-origin reports can redact the path, so a missing
+      // exact match does not prove that a different resource was blocked.
+      cspResource:
+        blocked && runnerModule?.src === blocked
+          ? "runner_module"
+          : blocked === "inline"
+            ? "inline"
+            : blocked === "eval" || blocked === "wasm-eval"
+              ? "eval"
+              : "unknown",
+    });
+  });
+  document.addEventListener(
+    "load",
+    (event) => {
+      if (
+        event.target instanceof HTMLScriptElement &&
+        isRunnerModule(event.target)
+      ) {
+        record("module_load", "returned");
+        recordModuleResource(event.target);
+      }
+    },
+    true,
+  );
+  document.addEventListener("visibilitychange", () => {
+    record("visibility", "received", { hidden: document.hidden });
+  });
+  for (const name of ["pagehide", "pageshow"]) {
+    addEventListener(name, (event) =>
+      record(name, "received", {
+        hidden: document.hidden,
+        persisted: event.persisted,
+      }),
+    );
+  }
+  for (const name of ["freeze", "resume"]) {
+    document.addEventListener(name, () =>
+      record(name, "received", { hidden: document.hidden }),
+    );
+  }
+})();
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIL Runner</title>
+    <script type="module" crossorigin="" src="./runner-DiyRWJgs.js.download" data-dil-runner-module="" data-dil-evaluation-checkpoint=""></script>
+  <style id="custom-cursor" type="text/css">body button, body [type='button'], body input[type='reset'], body input[type='submit'], body [role="button"], ::-webkit-search-cancel-button, ::-webkit-search-decoration, ::-webkit-scrollbar-button, ::-webkit-file-upload-button, [role^=button], .cc_pointer, [type="search"]::-webkit-search-cancel-button, a, select, [type="search"]::-webkit-search-decoration, .paper-button, .ytp-progress-bar-container, input[type=submit], :link, :visited, a > *, img,  ::-webkit-scrollbar-button, .ogdlpmhglpejoiomcodnpjnfgcpmgale_pointer, ::-webkit-file-upload-button, .ytp-volume-panel, #myogdlpmhglpejoiomcodnpjnfgcpmgale .icon, body .custom-cursor-on-hover {cursor: url("data:image/png;base64,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") 12 0, pointer !important;} html,body,body select,body .custom-cursor-default-hover {cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEUklEQVR4AcSXf0wbZRzG33vvvd71rlfacuVayrW4ZjOLG05jojHBoHPBuQRDaSFhUFooprUyBwtbRmJsJIsJMW7O7A/NMsyyiHMSRvwR2YxbosYtLpjh4qYZujlFXGBDNqVA2/O+MxiGuA04WHNP+r73vPk+n9y99753eHvrK0dDoQSH7tIPs8TwqJCdPBgIBOi7wYAnkmO9nJErkfOXv60BUJqW9MA5smO32SQiFalV8ebte5Y0XQvDm5+LHLLZsj/njTyiKCoW39ryqnZ+yQ4MSZOTqVqnw/kntLV7sCXauG0HtJdCNwCa4pHzDMNEc2UnUlUVEYJbKiPRl5YMAIIa6msOiKL5DZvFqs0HhMxmc8JfFWoBbzF14wpMBQwP/NRkt8tHTIIJEZpGWRbLjqdKy5qn/MX4vwkgkUikxuiU3+V0fctyHDLyPBJ4U5sG0bgY4VDzJgA4sa2u7loqM7ZecbkvaPMCyQ4HYg3ca+t9/gbw9dZ/ACCgKRb7lSFknSfPPYgpjBxOJ2JZ4+tllTUx8PXUrAAQEI9Un6eQus7r9V7hOCPKdbkozJA9vmA4Ar5e+l8ACHghFjmjUlSxW/GMEpogu2SnCEW/WVoVDoOvh24JAAFN0bpTjIEu9rg91yhMoawsM1ZTk3t91XXV4C9UtwWAgE314ROYxsX3ePJHkbZKWK1WjFGm3RcMVYK/EN0RAAQ0Ruu+IgbDkyuW33sVHlGbzUZTGbTfFwxXgD9f3TEABGx+Nvw1S8jaZfneIZZlkWS301jFB3wbw37w56M5AUDApljkG4HnH3PnuX+DdUKSbARj3FFWVVMG/lw1ZwAIiNcHz9I00SCUi4RhkCRlaxB0h7865AN/LpoXAATADiqY2EIlz/0DYQjKliSGovC7vo21peBPV9fONZbp/enteQNAkXht7SXM8IVKrtJLyD8QNKEO+oPhZ8AHtSfyObuUNdDVtsoL/ZlaEAAUa44FLyPRUKS48o4BhLZOMKnJ1HsbfIGSRAAZ/hj9a5/26B4t3XqmH8bP1IIBoCBsYGNm49N5LqVbe6NBJpNgoFD6kCqKX7gcVjLQPxSAcbNJFwAonAiHk8uc2WVmQdxLZcbRA7YvDVeS0uqX9yV3lie+m4Axs0k3ACheXl6eNg+2NnjxR78MDIvos1Mqhyjcs3Klsgr82aQrAATILs+LgnHi+eHr0gcCb0DaLREZlXQWyLIA/kzpDlD4yJqc5t0j3SOTg+WKbO20iLy2e6grMha+bWY49HUHyKQz90Hh48cvJDt7Tvplm9joyrEmaRrHoqVZT4A3XboDIAr193WXtE6FvN9zcpfAqgVFBeMfP/6w3HXinbWfHGsv4qZ83QHU9PgW7TOv4vThko6+DzdYIWi1ci7tsF6/mu9RzNqqWXzp4s//TkrdAe73Hbk8xqQewljtV9P408O7HnwrlULB3qGREMuxFaf7zu7//tyPvwMY6G8AAAD//0HSaywAAAAGSURBVAMAiIokGn6nczAAAAAASUVORK5CYII=") 0 0, auto !important;}</style></head>
+  <body data-cc-prev-cursor="{&quot;prev&quot;:[&quot;&quot;,&quot;&quot;],&quot;ours&quot;:[&quot;url(\&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEUklEQVR4AcSXf0wbZRzG33vvvd71rlfacuVayrW4ZjOLG05jojHBoHPBuQRDaSFhUFooprUyBwtbRmJsJIsJMW7O7A/NMsyyiHMSRvwR2YxbosYtLpjh4qYZujlFXGBDNqVA2/O+MxiGuA04WHNP+r73vPk+n9y99753eHvrK0dDoQSH7tIPs8TwqJCdPBgIBOi7wYAnkmO9nJErkfOXv60BUJqW9MA5smO32SQiFalV8ebte5Y0XQvDm5+LHLLZsj/njTyiKCoW39ryqnZ+yQ4MSZOTqVqnw/kntLV7sCXauG0HtJdCNwCa4pHzDMNEc2UnUlUVEYJbKiPRl5YMAIIa6msOiKL5DZvFqs0HhMxmc8JfFWoBbzF14wpMBQwP/NRkt8tHTIIJEZpGWRbLjqdKy5qn/MX4vwkgkUikxuiU3+V0fctyHDLyPBJ4U5sG0bgY4VDzJgA4sa2u7loqM7ZecbkvaPMCyQ4HYg3ca+t9/gbw9dZ/ACCgKRb7lSFknSfPPYgpjBxOJ2JZ4+tllTUx8PXUrAAQEI9Un6eQus7r9V7hOCPKdbkozJA9vmA4Ar5e+l8ACHghFjmjUlSxW/GMEpogu2SnCEW/WVoVDoOvh24JAAFN0bpTjIEu9rg91yhMoawsM1ZTk3t91XXV4C9UtwWAgE314ROYxsX3ePJHkbZKWK1WjFGm3RcMVYK/EN0RAAQ0Ruu+IgbDkyuW33sVHlGbzUZTGbTfFwxXgD9f3TEABGx+Nvw1S8jaZfneIZZlkWS301jFB3wbw37w56M5AUDApljkG4HnH3PnuX+DdUKSbARj3FFWVVMG/lw1ZwAIiNcHz9I00SCUi4RhkCRlaxB0h7865AN/LpoXAATADiqY2EIlz/0DYQjKliSGovC7vo21peBPV9fONZbp/enteQNAkXht7SXM8IVKrtJLyD8QNKEO+oPhZ8AHtSfyObuUNdDVtsoL/ZlaEAAUa44FLyPRUKS48o4BhLZOMKnJ1HsbfIGSRAAZ/hj9a5/26B4t3XqmH8bP1IIBoCBsYGNm49N5LqVbe6NBJpNgoFD6kCqKX7gcVjLQPxSAcbNJFwAonAiHk8uc2WVmQdxLZcbRA7YvDVeS0uqX9yV3lie+m4Axs0k3ACheXl6eNg+2NnjxR78MDIvos1Mqhyjcs3Klsgr82aQrAATILs+LgnHi+eHr0gcCb0DaLREZlXQWyLIA/kzpDlD4yJqc5t0j3SOTg+WKbO20iLy2e6grMha+bWY49HUHyKQz90Hh48cvJDt7Tvplm9joyrEmaRrHoqVZT4A3XboDIAr193WXtE6FvN9zcpfAqgVFBeMfP/6w3HXinbWfHGsv4qZ83QHU9PgW7TOv4vThko6+DzdYIWi1ci7tsF6/mu9RzNqqWXzp4s//TkrdAe73Hbk8xqQewljtV9P408O7HnwrlULB3qGREMuxFaf7zu7//tyPvwMY6G8AAAD//0HSaywAAAAGSURBVAMAiIokGn6nczAAAAAASUVORK5CYII=\&quot;) 0 0, auto&quot;,&quot;important&quot;]}" style="cursor: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEUklEQVR4AcSXf0wbZRzG33vvvd71rlfacuVayrW4ZjOLG05jojHBoHPBuQRDaSFhUFooprUyBwtbRmJsJIsJMW7O7A/NMsyyiHMSRvwR2YxbosYtLpjh4qYZujlFXGBDNqVA2/O+MxiGuA04WHNP+r73vPk+n9y99753eHvrK0dDoQSH7tIPs8TwqJCdPBgIBOi7wYAnkmO9nJErkfOXv60BUJqW9MA5smO32SQiFalV8ebte5Y0XQvDm5+LHLLZsj/njTyiKCoW39ryqnZ+yQ4MSZOTqVqnw/kntLV7sCXauG0HtJdCNwCa4pHzDMNEc2UnUlUVEYJbKiPRl5YMAIIa6msOiKL5DZvFqs0HhMxmc8JfFWoBbzF14wpMBQwP/NRkt8tHTIIJEZpGWRbLjqdKy5qn/MX4vwkgkUikxuiU3+V0fctyHDLyPBJ4U5sG0bgY4VDzJgA4sa2u7loqM7ZecbkvaPMCyQ4HYg3ca+t9/gbw9dZ/ACCgKRb7lSFknSfPPYgpjBxOJ2JZ4+tllTUx8PXUrAAQEI9Un6eQus7r9V7hOCPKdbkozJA9vmA4Ar5e+l8ACHghFjmjUlSxW/GMEpogu2SnCEW/WVoVDoOvh24JAAFN0bpTjIEu9rg91yhMoawsM1ZTk3t91XXV4C9UtwWAgE314ROYxsX3ePJHkbZKWK1WjFGm3RcMVYK/EN0RAAQ0Ruu+IgbDkyuW33sVHlGbzUZTGbTfFwxXgD9f3TEABGx+Nvw1S8jaZfneIZZlkWS301jFB3wbw37w56M5AUDApljkG4HnH3PnuX+DdUKSbARj3FFWVVMG/lw1ZwAIiNcHz9I00SCUi4RhkCRlaxB0h7865AN/LpoXAATADiqY2EIlz/0DYQjKliSGovC7vo21peBPV9fONZbp/enteQNAkXht7SXM8IVKrtJLyD8QNKEO+oPhZ8AHtSfyObuUNdDVtsoL/ZlaEAAUa44FLyPRUKS48o4BhLZOMKnJ1HsbfIGSRAAZ/hj9a5/26B4t3XqmH8bP1IIBoCBsYGNm49N5LqVbe6NBJpNgoFD6kCqKX7gcVjLQPxSAcbNJFwAonAiHk8uc2WVmQdxLZcbRA7YvDVeS0uqX9yV3lie+m4Axs0k3ACheXl6eNg+2NnjxR78MDIvos1Mqhyjcs3Klsgr82aQrAATILs+LgnHi+eHr0gcCb0DaLREZlXQWyLIA/kzpDlD4yJqc5t0j3SOTg+WKbO20iLy2e6grMha+bWY49HUHyKQz90Hh48cvJDt7Tvplm9joyrEmaRrHoqVZT4A3XboDIAr193WXtE6FvN9zcpfAqgVFBeMfP/6w3HXinbWfHGsv4qZ83QHU9PgW7TOv4vThko6+DzdYIWi1ci7tsF6/mu9RzNqqWXzp4s//TkrdAe73Hbk8xqQewljtV9P408O7HnwrlULB3qGREMuxFaf7zu7//tyPvwMY6G8AAAD//0HSaywAAAAGSURBVAMAiIokGn6nczAAAAAASUVORK5CYII=&quot;) 0 0, auto !important;">
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a59c6a10983d24be',t:'MTc5NDU1ODYyNQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a59c6a10983d24be',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
+</body></html>
