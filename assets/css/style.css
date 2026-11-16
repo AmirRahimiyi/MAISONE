@@ -3368,3 +3368,95 @@ textarea:focus-visible {
         gap: 5px;
     }
 }
+
+/* =========================================
+   MAISONÉ — MOTION SYSTEM
+========================================= */
+
+/* Scroll Reveal Base */
+
+.motion-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.motion-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Direction Variations */
+
+.motion-reveal.from-left {
+    transform: translateX(-30px);
+}
+
+.motion-reveal.from-right {
+    transform: translateX(30px);
+}
+
+.motion-reveal.from-left.is-visible,
+.motion-reveal.from-right.is-visible {
+    transform: translateX(0);
+}
+
+/* Smooth Button Interaction */
+
+button,
+.primary-button,
+.add-to-cart-btn,
+.place-order-btn {
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        transform 0.35s ease;
+}
+
+/* Reduced Motion Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .motion-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* =========================================
+   MAISONÉ — CINEMATIC PAGE ENTRANCE
+========================================= */
+
+.page-enter {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+        opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--enter-delay, 0ms);
+}
+
+.page-ready .page-enter {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-enter {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
